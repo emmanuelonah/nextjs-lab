@@ -4,7 +4,7 @@ type ValidationText = { type: keyof typeof PasswordValidator.VALIDATION_TYPES; v
 
 class PasswordValidator {
   /**
-   * @regexp private static RegExp
+   * @PASSWORD_REGEXP private static RegExp
    * - (?=.*[A-Z]) asserts that the string must contain at least one uppercase letter.
    * - (?=.*[a-z]) asserts that the string must contain at least one lowercase letter.
    * - (?=.*\d) asserts that the string must contain at least one digit (number).

@@ -10,13 +10,6 @@
 
 This is a place i test out NextJs/React ideas.
 
-### Which configurations it comes with:
-
-1. Http services built ontop axios
-2. Design system with styled-component and RadixUI integration
-3. A git-action that runs the unit test on master and PR branches
-4. A git-hooks for local-ci that runs your linters and unit-tests
-
 ## Technologies used
 
 1. [Next.Js](https://nextjs.org/)

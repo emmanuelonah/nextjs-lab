@@ -8,7 +8,7 @@
 
 ## About
 
-This is a Production sample of how a NextJs project should be architected brought to you by "Emmanuel Onah". Feel free to clone it and use it as a base of your next.js projects.
+This is a place i test out NextJs/React ideas.
 
 ### Which configurations it comes with:
 

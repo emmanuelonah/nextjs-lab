@@ -4,28 +4,37 @@ import { dummyConnect } from '.';
 
 const mockedOnLog = jest.fn();
 
+type PropableState = {
+  name: string;
+  profession: string;
+  nationality: string;
+};
+
 describe('redux-helpers', () => {
   describe('dummyConnect', () => {
     it('should augment component prop', () => {
-      function LogComponent(props: { log: () => void }) {
+      function LogComponent({ log, ...rest }: { log: (_s: PropableState) => void } & PropableState) {
         return (
-          <button type="button" onClick={props.log}>
+          <button type="button" onClick={() => log(rest as PropableState)}>
             Log
           </button>
         );
       }
-      function mapStateToProps(_s: any) {
-        console.log('HURRAY: mapStateToProps is executed 🎉');
+      function mapStateToProps(s: PropableState) {
+        console.log('HURRAY: mapStateToProps is executed 🎉', s);
       }
 
       const mapDispatchToProps = {
-        log: (_p: any) => {
-          console.log('LOGGING ☕️');
+        log: (s: PropableState) => {
+          console.log('LOGGING ☕️', s);
           mockedOnLog();
         },
       };
 
-      const Component = dummyConnect(mapStateToProps, mapDispatchToProps)(LogComponent as React.FunctionComponent);
+      const Component = dummyConnect(
+        mapStateToProps as any,
+        mapDispatchToProps as any
+      )(LogComponent as React.FunctionComponent);
 
       render(<Component />);
 
